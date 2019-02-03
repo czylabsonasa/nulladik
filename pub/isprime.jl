@@ -1,4 +1,3 @@
-let
 # teljesen bf
 function isPrime0(x)
   ans=false
@@ -64,5 +63,3 @@ r3==r0 && r2==r0
 #     println("nem prím")
 #   end
 # end
-
-end
