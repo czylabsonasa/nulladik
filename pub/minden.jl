@@ -173,6 +173,8 @@ println(pr[ npr-1 ])
 
 ###############################################
 # preu 12
+# szitás változat 
+
 function osztókSzáma(n)
   sz = ones( Int, n )
   sz[ 2 ] = 2
@@ -392,6 +394,101 @@ function bouncy(num)
   end
   ( true==up && down ) ? 1 : 0
 end
+
+
+###############################################
+# preu 43
+# rekurzió, visszalépéses
+
+p=(0,0,0,2,3,5,7,11,13,17)
+foglalt=zeros(Int8, 10)
+akt=zeros(Int8, 10)
+res=[]
+function generál( level )
+  if level > 10 
+    push!( res, parse(Int, join(akt)) ) 
+    return nothing 
+  end
+  for i in 0:9
+    if 1 == foglalt[ i+1 ] continue end
+    foglalt[ i+1 ] = 1
+    akt[ level ] = i
+    if level < 4 || 0 == mod( sum( [100,10,1] .* akt[level-2:level] ), p[ level ] )
+      generál( 1 + level )
+    end
+    foglalt[ i+1 ] = 0
+  end
+  nothing
+end
+
+for i in 1:9
+  foglalt[ i+1 ] = 1
+  akt[ 1 ] = i
+  generál( 2 )
+  foglalt[ i+1 ] = 0
+end  
+
+###############################################
+# preu 30
+# teljesen brute force
+
+res = []
+lim = 6*9^5
+for num in 2:lim
+  if sum( parse.( Int, collect(string(num))) .^5 ) == num 
+    push!( res, num )
+  end
+end
+
+
+###############################################
+# preu 29
+# brute force
+let
+  function osztók(num)
+    ret=[]
+    for d in 2:num-1
+      0==mod(num, d) && push!(ret, d )
+    end
+    ret
+  end
+
+  alo, aup = 2, 100
+  blo, bup = 2, 100
+
+  function sol1(alo,aup,blo,bup)
+  #  AUP=log(aup)
+    összes = (aup-alo+1)*(bup-blo+1)
+    for a in alo:aup
+  #    A=log(a)
+      for b in blo:bup
+        for d in osztók(b)
+          big(a)^d > aup && break # ugyanaz log-ra
+  #        d*A>AUP && break
+          összes -= 1
+        end
+      end  
+    end
+    összes
+  end
+
+  function sol2(alo,aup,blo,bup)
+    res=[]
+    for a in alo:aup, b in blo:bup
+        push!(res, big(a)^b )
+    end
+    length( unique(res))
+  end
+
+
+  println(sol1(alo,aup,blo,bup))
+  println(sol2(alo,aup,blo,bup))
+
+end
+
+
+
+
 
 
 ###############################################

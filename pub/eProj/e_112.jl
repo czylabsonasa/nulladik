@@ -15,7 +15,7 @@ end
 # nid=id(1)+id(2)
 # n=10^2-1
 
-# itt egy while kellene és csak 1x végigmenni
+# itt egy while kellene és csak 1x "végigmenni"
 # ez egy kísérletezgetős változat
 fr, to = 100, 2000000
 a=cumsum( bouncy.( fr:to ) )
