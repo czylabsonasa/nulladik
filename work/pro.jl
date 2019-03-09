@@ -1,3 +1,8 @@
-  a=1
-  if a>0 a+=3 end
-  println(a)
+  function F(x)
+    arr=zeros(Int,10)
+    function add()
+      arr .+= x
+      println(arr)
+    end
+    return add
+  end
