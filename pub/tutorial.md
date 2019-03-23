@@ -1,4 +1,4 @@
-Néhány alapszerkezetet érintünk. A legtöbb ddolgot 
+Néhány alapszerkezetet érintünk. A legtöbb dolgot 
 feladatmegoldás közben lehet (kell?) megtanulni.
 
 # Témák:
@@ -152,3 +152,86 @@ println( (x < y) ? x : y ) # rövidebb változat
 1. Duck-typing a Julia-ban ( https://en.wikipedia.org/wiki/Duck_typing )
 1. Mutating és non-mutating függvények (mutating=argumentumát módosító)
 1. Magasabb rendű függvények
+
+
+## Megadásuk
+
+### Első lehetőség: function és end kulcsszavakkal
+```julia
+function f(x)
+    x^2
+end
+```
+### Második lehetőség: =-el
+```julia
+f2(x) = x^2
+```
+### Harmadik lehetőség: névtelen függvényként
+```julia
+f3 = x -> x^2
+```
+
+[Próbáljuk](tutFun.jl) ki:
+```julia
+f(42), f2(42), f3(42)
+(1764, 1764, 1764)
+```
+
+## Duck-typing a Julia-ban
+*"If it quacks like a duck, it's a duck."* 
+
+Ha értelmezett az adott bemenetre a függvény által elvégzendő számolás 
+akkor a függvény elvégzi azt típustól függetlenül. 
+Például a fenti f működik négyzetes 
+mátrixokra is, hiszen azok négyzetre emelhetők. 
+Nem fog működni az f vektorokra hiszen azokra a négyzetre emelés nem definiált.
+
+[Próbáljuk](tutFun2.jl) ki:
+```julia
+f(x) = x^2
+A = rand(3, 3)
+println(A)
+println(f(A))
+v = rand(3)
+f(v) # HIBA!
+```
+
+
+## Mutating és non-mutating függvények
+Megállapodás szerint csak az olyan fv-ek módosítják valamely argumentumuk tartalmlát (=mutating), <br>melyek neve !-el végződik. Nézzük meg például a sort és a sort! közti különbséget:
+[Próbáljuk](tutFun3.jl) ki:
+```julia
+v = [3, 5, 2]
+println(sort(v))
+println(v)
+sort!(v);
+println(v)
+```
+A sort(v) visszaadja a v rendezett változatát, miközben a v változatlan marad.<br>
+A sort!(v) hívásnál a v mögötti tartalom módosul, helyben rendezi a vektort:
+
+
+## Magasabb rendű függvények
+### broadcast
+A broadcast egy magasabb rendű függvény melynek egyik argumentuma egy függvény- 
+ezt a fv-t alkalmazza a broadcast az átadott adatszerkezet (másik argumentum) minden elemére. Például:
+```julia
+broadcast(f, [1, 2, 3])
+```
+egy tömböt eredményez melyben a mefelelő elemek az f eredeti elemeknél felvett értékei:
+
+```julia
+[f(1), f(2), f(3)]
+```
+Tehát az [ 1,2,3] vektor minden elemét négyzetre emeltük, nem magát a vektort.
+Hasonlóan, de már névtelen függvénnyel az elemenkénti köbreemelés:
+
+```julia
+broadcast(x -> x^3, [1, 2, 3])
+```
+A broadcast helyettesíthető a fv. neve után írt .-tal:
+```julia
+f.([1, 2, 3])
+```
+
+[Próbáljuk](tutFun4.jl) ki!
