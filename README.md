@@ -1,0 +1,1 @@
+Ezek a nulladik évfolam anyagai. Matematika és programozás [Julia](julialang.org)-ban.
