@@ -144,3 +144,11 @@ else
 end
 println( (x < y) ? x : y ) # rövidebb változat
 ```
+
+## Függvények
+
+### Témák:
+1. Megadásuk
+1. Duck-typing a Julia-ban ( https://en.wikipedia.org/wiki/Duck_typing )
+1. Mutating és non-mutating függvények (mutating=argumentumát módosító)
+1. Magasabb rendű függvények
