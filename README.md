@@ -1,5 +1,7 @@
 # Nulladik évfolyam - Matematika és programozás [Julia](julialang.org)-ban.
 
-## 1. [Első](első.md) alkalom.
+## 0. [Telepítés](pre.md) előkészületek.
+
+## 1. [Első](elso.md) alkalom.
 Ismerkedés a Julia nyelvvel. Néhány egyszerű feladat megoldása. 
 ## 1.

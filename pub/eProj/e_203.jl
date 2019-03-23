@@ -9,7 +9,8 @@ function sqf(n)
   true
 end
 let
-  # Q: van két egyforma szám a Pascal△ szigorú belsejében? b(4,2)=b(6,1)
+  # Q: van két egyforma szám a Pascal△ szigorú belsejében?
+  # b(4,2)=b(6,1)
   # 8 is lehet: 3003,1=78,2=15,5=14,6 és a jobboldali párjaik
 
   sol=[1,2,3,6] # az eleje kézzel
