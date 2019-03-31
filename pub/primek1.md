@@ -1,3 +1,16 @@
+<head>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.css" integrity="sha384-dbVIfZGuN1Yq7/1Ocstc1lUEm+AT+/rCkibIcC/OmWo5f0EA48Vf8CytHzGrSwbQ" crossorigin="anonymous">
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.js" integrity="sha384-2BKqo+exmr9su6dir+qCw08N2ZKRucY4PrGQPPWU1A7FtlCGjmEGFqXCv5nyM5Ij" crossorigin="anonymous">
+</script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
+      onload="renderMathInElement(document.body);">
+</script>
+</head>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css">
+
 # [prímszámok](https://hu.wikipedia.org/wiki/Pr%C3%ADmsz%C3%A1mok)
 
 ```Röviden:``` Legyen az univerzumunk az egytől 
@@ -54,7 +67,7 @@ end
 * Megpróbáljuk kevesebb számra tesztelni, hogy osztója-e ```n```-nek:
    * Egy ```4```-től nagyobb prímszám ```1``` vagy ```5``` maradékot ad ```6```-tal osztva, <br>
    ezért csak ezeken megyünk végig.
-* Egy összetett számnak biztosan olyan osztója mely nem nagyobb mint $$\sqrt{n}$$, <br>
+* Egy összetett számnak biztosan olyan osztója mely nem nagyobb mint $\sqrt{n}$, <br>
 azaz ettől nagyobb számra nem kell tesztelni.
 
 
